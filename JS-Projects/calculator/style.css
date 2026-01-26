@@ -1,0 +1,34 @@
+body {
+      background-color: black;
+      font-family: Arial;
+    }
+    .button {
+      height: 60px;
+      width: 60px;
+      border-radius: 30px;
+      font-size: 22px;
+      border-color: transparent;
+      padding: 6px 6px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    .calculation {
+      color: white;
+      font-size: 45px;
+      margin-bottom: 5px;
+      margin-top: 25px;
+
+    }
+    .number {
+      background-color: rgb(51,51,51);
+      color: white;
+    }
+    .operation {
+      background-color: rgb(254,160,10);
+      color: white;
+    }
+    .clear {
+      background-color: rgb(51,51,51);
+      font-size: 18px;
+      color: white
+    }

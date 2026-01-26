@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>To Do List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<p>Todo List 1</p>
+<input placeholder="Todo Name" class="todo">
+<button class="todoAdd" onclick="if(document.querySelector('.todo').value!='')
+todoList(document.querySelector('.todo').value);">Add</button>
+<p>Todo List 2</p>
+<input placeholder="Todo Name" class="todo2">
+<button class="todoAdd2" onclick="if(document.querySelector('.todo2').value!='')
+todoList2(document.querySelector('.todo2').value);">Add</button>
+<p class="todoList2"></p>
+<div class="js-todoList2"></div>
+<p>Todo List 3</p>
+<div class="todo-grid">
+  <input placeholder="Todo Name" class="todo3 input">
+  <input type="date" class = "dateSelector input">
+  <button class="todoAdd3 addButton" onclick="
+  if(document.querySelector('.todo3').value!='')
+  todoList3(document.querySelector('.todo3').value , document.querySelector('.dateSelector').value);">Add</button>
+</div>
+<div class="js-todoList3 todoListGrid"></div>
+<script src="script.js"> </script>
+</body>
+</html>

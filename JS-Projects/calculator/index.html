@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <p class="calculation"></p>
+  <p>
+    <button onclick="updateCalculation('1');" class="button number">1</button>
+    <button onclick="updateCalculation('2');" class="button number">2</button>
+    <button onclick="updateCalculation('3');" class="button number">3</button>
+    <button onclick="updateCalculation(' + ');" class="button operation">+</button>
+  </p>
+  <p>
+    <button onclick="updateCalculation('4');" class="button number">4</button>
+    <button onclick="updateCalculation('5');" class="button number">5</button>
+    <button onclick="updateCalculation('6');" class="button number">6</button>
+    <button onclick="updateCalculation(' - ');" class="button operation">-</button>
+  </p>
+  <p>
+    <button onclick="updateCalculation('7');" class="button number">7</button>
+    <button onclick="updateCalculation('8');" class="button number">8</button>
+    <button onclick="updateCalculation('9');" class="button number">9</button>
+    <button onclick="updateCalculation(' * ');" class="button operation">*</button>
+  </p>
+  <p>
+    <button onclick="updateCalculation(0);" class="button number">0</button>
+    <button onclick=" updateCalculation ('.')" class="button number">.</button>
+    <button onclick="document.querySelector('.calculation').innerHTML = eval(calculation);
+      calculation=eval(calculation);" class="button number">=</button>
+    <button onclick="updateCalculation(' / ');" class="button operation">/</button>
+  </p>
+  <p>
+    <button onclick="reset();" class="button clear">Clear</button>
+  </p>
+  <script src="script.js"></script>
+</body>
+
+</html>
