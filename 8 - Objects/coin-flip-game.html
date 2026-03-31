@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+	<button onclick="playGame('heads');">Heads</button>
+	<button onclick="playGame('tails');">Tails</button>
+	<!--p class="user-move"></p-->
+	<!--p class="result"></p-->
+	<script>
+		const score = JSON.parse(localStorage.getItem('key2')) || { wins: 0, losses: 0 };
+		function playGame(guess) {
+			//document.querySelector('.user-move').innerHTML = `You Chose: ${guess}`;
+			const randomNumber = Math.random();
+			const move = randomNumber < 0.5 ? 'heads' : 'tails';
+			if (guess === move) {
+				score.wins++;
+				localStorage.setItem('key', JSON.stringify(score));
+				console.log('You Win');
+				console.log(score);
+			}
+			else {
+				score.losses++;
+				localStorage.setItem('key2', JSON.stringify(score));
+				console.log('You Loose');
+				console.log(score);
+			}
+			//document.querySelector('.result').innerHTML = `Wins: ${score.wins} , Losses: ${score.losses}`;
+		}
+	</script>
+</body>
+
+</html>

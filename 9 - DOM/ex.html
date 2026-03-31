@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>9a</button>
+    <button class="js-9b">9b</button>
+    <p>
+        <button onclick="move('Heads');">Heads</button>
+        <button onclick="move('Tails');">Tails</button>
+    </p>
+    <p class="js-move"></p>
+    <p>
+        <input class="js-input" onkeydown="clickEnter(event);">
+        <button onclick="myName();">Submit</button>
+    </p>
+    <p class="js-name"></p>
+    <input class="js-typing" onkeyup="typing();">
+    <p class="js-type"></p>
+    <script>
+        console.log(document.querySelector('button'));
+        document.querySelector('.js-9b').innerHTML = '9b done!';
+        function move(move) {
+            document.querySelector('.js-move').innerHTML = `You Choose: ${move}`;
+        }
+        function myName() {
+            let inputElement = document.querySelector('.js-input').value;
+            document.querySelector('.js-name').innerHTML = `My Name is: ${inputElement}`;
+        }
+
+        function clickEnter(event) {
+            if(event.key==='Enter')
+        myName();
+        }
+
+        function typing(){
+            document.querySelector('.js-type').innerHTML = document.querySelector('.js-typing').value;
+        }
+    </script>
+</body>
+
+</html>

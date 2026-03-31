@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<script>
+const item = {
+name: 'Basketball',
+price: 2095,
+//['delivery-time']: '5 days'
+}
+item['delivery-time'] = '5 Days';
+
+const item2 = {
+name: 'Basketball',
+price: 2595,
+//['delivery-time']: '5 days'
+}
+item['delivery-time'] = '5 Days';
+
+console.log(item);
+item.price+=500;
+console.log(item);
+
+function comparePrice(prd1,prd2) {
+if(prd1.price < prd2.price)
+return(prd1);
+else if (prd2.price < prd1.price)
+return (prd2);
+}
+console.log(comparePrice(item,item2));
+
+function isSameProduct(prd1,prd2) {
+if (prd1.name === prd2.name && prd1.price === prd2.price)
+return true;
+else
+return false;
+}
+
+console.log(isSameProduct(item,item2));
+
+
+let st = "Good Morning";
+console.log(st.toLowerCase());
+st=st.toLowerCase();
+console.log(st.repeat(2));
+
+const {name} = item;
+console.log(name);
+
+</script>
+</html>

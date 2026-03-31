@@ -1,0 +1,34 @@
+body {
+    background-color: black;
+    font-family: Arial;
+    color: white;
+}
+
+.move {
+    height: 50px;
+}
+
+.move-button {
+    background-color: transparent;
+    border: 3px solid white;
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.js-result {
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.js-moveRemarks {
+    margin-bottom: 50px;
+}
+
+.reset {
+    padding: 10px 15px;
+    font-size: 15px;
+    cursor: pointer;
+}

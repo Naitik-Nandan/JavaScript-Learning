@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<button>9a</button>
+	<button class="b">9b</button>
+<p>
+<input class="name-box" onkeydown="if(event.key==='Enter')
+myName();">
+<button onclick="myName();">Submit</button>
+</p>
+<p class="myName"></p>
+<input class="keyUp" onkeyUp="keyUp();">
+<p class="Up"></p>
+</body>
+<script>
+console.log(document.querySelector('button').innerHTML);
+document.querySelector('.b').innerHTML= "9b Done";
+
+function myName() {
+const value = document.querySelector('.name-box').value;
+document.querySelector('.myName').innerHTML= `My Name is: ${value}`;
+}
+
+function keyUp(key) {
+document.querySelector('.Up').innerHTML = document.querySelector('.keyUp').value;
+}
+</script>
+</html>

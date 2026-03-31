@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Cart Quantity</title>
+</head>
+
+<body>
+  <button onclick="
+document.querySelector('Q').innerHTML=`Cart Quantity: ${cartQuantity}`;
+    ">Show Quantity</button>
+
+  <button onclick="
+      updateCartQuantity(1);
+    ">Add to Cart</button>
+
+  <button onclick="
+      updateCartQuantity(2);
+    ">+2</button>
+
+  <button onclick="
+      updateCartQuantity(3);
+    ">+3</button>
+
+  <button onclick="
+      updateCartQuantity(4);
+    ">+4</button>
+
+  <button onclick="
+      updateCartQuantity(5);
+    ">+5</button>
+
+  <!-- vvv This code was changed. vvv -->
+  updateCartQuantity(-1);
+  ">Remove from cart</button>
+
+  <button onclick="
+     updateCartQuantity(-2);
+    ">-2</button>
+
+  <button onclick="
+      updateCartQuantity(-3);
+    ">-3</button>
+  <!-- ^^^ This code was changed. ^^^ -->
+
+  <button onclick="
+      cartQuantity = 0;
+      console.log('Cart was reset.');
+document.querySelector('.Q').innerHTML=`Cart Quantity: ${cartQuantity}`;
+    ">Reset Cart</button>
+
+  <p class="Q"></p>
+
+  <script>
+    let cartQuantity = 0;
+    document.querySelector('.Q').innerHTML = `Cart Quantity: ${cartQuantity}`;
+    function updateCartQuantity(num) {
+
+      if (num > 0 && cartQuantity + num <= 10) {
+        cartQuantity += num;
+        document.querySelector('.Q').innerHTML = `Cart Quantity: ${cartQuantity}`;
+      }
+      else if (num < 0 && (cartQuantity + num) >= 0) {
+        cartQuantity += num;
+        document.querySelector('.Q').innerHTML = `Cart Quantity: ${cartQuantity}`;
+      }
+      else if (cartQuantity + num < 0) {
+        alert("Not Enough Items in The Cart");
+        return;
+      }
+      else if (cartQuantity + num > 10) {
+        alert("Cart is Full!");
+        return
+      }
+
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Code</title>
+</head>
+<body>
+	<button onclick = "updateCartQuantity(1);">Add to Cart</button>
+	<button onclick = "updateCartQuantity(-1);">Remove From Cart</button>
+	<button onclick = "updateCartQuantity(-2);">-2</button>
+</body>
+</html>
+<script>
+let cart=0;
+function updateCartQuantity(Q) {
+if (cart<10 && cart>=0 && (cart+Q)>=0){
+	cart+=Q;
+console.log(cart);
+}
+else 
+console.log("The Cart is full");
+}
+
+const name = "Naitik!";
+const hour = 13;
+if (hour >= 6 && hour <=12)
+console.log("Good Morning "+name);
+else if (hour >= 13 && hour <=17)
+console.log("Good Afternoon "+name);
+else if (hour >= 18 && hour <=20)
+console.log("Good Evening "+name);
+else
+console.log("Good Night!");
+
+const age = 15;
+const isHoliday = false;
+console.log(((age>=65 || age <=6) && (isHoliday === false)) ? "DISCOUNT" : "NO DISCOUNT");
+
+const randomNumber = Math.random();
+const result = randomNumber <=0.5 ? "HEADS" : "TAILS";
+console.log(result);
+const guess = "HEADS";
+console.log(guess === result ? "You Win!" : "You Lose");
+</script>

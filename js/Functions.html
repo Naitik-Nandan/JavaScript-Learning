@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<p>
+      <button onclick="
+        updateCalculation(1);
+      ">1</button>
+
+      <button onclick="
+        updateCalculation(2);
+      ">2</button>
+
+      <button onclick="
+        updateCalculation(3);
+      ">3</button>
+
+      <button onclick="
+        updateCalculation(' + ');
+      ">+</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation(4);
+      ">4</button>
+
+      <button onclick="
+        updateCalculation(5);
+      ">5</button>
+
+      <button onclick="
+       updateCalculation(6);
+      ">6</button>
+
+      <button onclick="
+        updateCalculation(' - ');
+      ">-</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation(7);
+      ">7</button>
+
+      <button onclick="
+       updateCalculation(8);
+      ">8</button>
+
+      <button onclick="
+        updateCalculation(9);
+      ">9</button>
+
+      <button onclick="
+        updateCalculation(' * ');
+      ">*</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation(0);
+      ">0</button>
+
+      <button onclick="
+       updateCalculation('.');
+      ">.</button>
+
+      <button onclick="
+        // Note: eval() takes a string and runs it as code.
+        // Avoid using eval() in real world projects since
+        // it can potentially be given harmful code to run.
+        // Only use eval() for learning purposes.
+        calculation = eval(calculation);
+        console.log(calculation);
+      ">=</button>
+
+      <button onclick="
+        updateCalculation(/);
+      ">/</button>
+    </p>
+
+    <p>
+      <button onclick="
+        calculation = '';
+        console.log('Cleared.');
+      ">Clear</button>
+    </p>
+</body>
+
+<script>
+
+function greet(name) {
+if(name)
+console.log(`Hello ${name}`);
+else 
+console.log("Hi there!");
+}
+greet();
+greet();
+greet();	
+
+function convertToFahrenheit(celsius) {
+return ((celsius* (9/5)) +32);
+}
+
+console.log(convertToFahrenheit(25));
+
+function convertToCelsius(fahrenheit) {
+return ((fahrenheit-32) * (5/9));
+}
+
+console.log(convertToCelsius(86));
+
+
+function convertTemperature(degrees, unit) {
+if (unit === 'C')
+return (convertToFahrenheit(degrees)+'F');
+else if (unit === 'F')
+return (convertToCelsius(degrees)+'C');
+}
+
+console.log(convertTemperature(25,'C'));
+console.log(convertTemperature(86,'F'));
+
+function convertLength( length , from , to) {
+if (from === 'miles' && to === 'km')
+return ((length*1.6)+' km');
+else if (from === 'km' && to === 'miles')
+return ((length/1.6)+' miles');
+if (from === 'miles' && to === 'ft')
+return ((length*5280)+' ft');
+else if (from === 'km' && to === 'ft')
+return ((length*3281	)+' ft');
+else if (from === to)
+return (length+' '+to)
+else if(from != 'km' || from!='miles' || from !='ft')
+return(`Invalid Unit: ${from}`);
+else if (to != 'km' || to!='miles' || to !='ft')
+return(`Invalid Unit: ${to}`);
+else if (from === to)
+return (length+' '+to);
+}
+console.log(convertLength(2,'miles','km'));
+console.log(convertLength(3.2,'km','miles'));
+console.log(convertLength(2,'km','km'));
+console.log(convertLength(5,'miles','ft'));
+console.log(convertLength(5,'km','ft'));
+console.log(convertLength(4,'K','C'));
+
+
+let calculation = '';
+ function updateCalculation (num){
+	calculation+=num;
+console.log(calculation);
+}
+</script>
