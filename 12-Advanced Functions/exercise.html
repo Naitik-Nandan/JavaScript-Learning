@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+</head>
+
+<body>
+    <button class="start">Start</button>
+    <button class="add">Add to Cart</button>
+    <p class="cart"></p>
+    <p>
+        <button class="add-msg">Add</button>
+        <button class="remove-msg">Remove</button>
+    </p>
+    <script>
+        const add = function () {
+            console.log(2 + 3);
+        }
+        add();
+        add();
+
+        function runTwice(fun) {
+            fun();
+            fun();
+        };
+
+        runTwice(add);
+
+        function finisher() {
+            document.querySelector('.start').innerHTML = 'Loading...'
+            setTimeout(() => {
+                document.querySelector('.start').innerHTML = 'Finished';
+            }, 1000);
+        }
+
+        document.querySelector('.start').addEventListener('click', finisher);
+        let timeOuting = false, id;
+        function addToCart() {
+            if (!timeOuting) {
+                document.querySelector('.cart').innerHTML = `Added`;
+                id = setTimeout(() => {
+                    document.querySelector('.cart').innerHTML = ``;
+                    timeOuting = false
+                }, 2000);
+                timeOuting = true;
+            }
+            else {
+                clearTimeout(id);
+                document.querySelector('.cart').innerHTML = `Added`;
+                id = setTimeout(() => {
+                    document.querySelector('.cart').innerHTML = ``;
+                    timeOuting = false
+                }, 2000);
+                timeOuting = true;
+
+            }
+        }
+
+        document.querySelector('.add').addEventListener('click', addToCart);
+        let msg = 2;
+        document.querySelector('.add-msg').addEventListener('click', () => msg++);
+        document.querySelector('.remove-msg').addEventListener('click', () => {
+            if (msg != 0)
+                msg--
+        });
+        const title = document.title;
+        let turn = false;
+        setInterval(() => {
+            if (!turn && msg > 0) {
+                document.title = '(' + msg + ') New Messages';
+                turn = true;
+            }
+            else {
+                turn = false;
+                document.title = 'App'
+            }
+        }, 1000);
+
+        const multiply = (a, b) => a * b;
+        const countPostive = nums => {
+            let k = 0;
+            nums.forEach((val) => val > 0 ? k++ : k += 0);
+            return k;
+        }
+        console.log(countPostive([2, -2, 2, 2, -5]));
+
+        const addNum = (array, num) => {
+            const newArray = array.map((value) => value + num);
+            return newArray;
+        }
+
+        console.log(addNum([2, -2, 2, 2, -5], 2));
+
+        const removeEggs = (arr) => {
+            let k = 0;
+            return (arr.filter((val) => {
+                if (val != 'egg')
+                    return true;
+                else if (val === 'egg' && k < 2) {
+                    k++;
+                    return false;
+                }
+                else
+                    return true;
+            }));
+        }
+
+        console.log(removeEggs(['egg', 'tomato', 'salad', 'egg', 'egg']));
+    </script>
+</body>
+
+</html>

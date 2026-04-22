@@ -1,0 +1,62 @@
+.js-button {
+            background-color: rgb(255, 216, 20);
+            color: black;
+            border: none;
+            border-radius: 20px;
+            height: 40px;
+            width: 180px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .Request {
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            height: 40px;
+            width: 130px;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .book {
+            background-color: rgb(230, 230, 230);
+            color: black;
+            border: none;
+            border-radius: 10px;
+            height: 40px;
+            width: 150px;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .toggle-off {
+            background-color: rgb(230, 230, 230);
+            color: black;
+            border: none;
+            border-radius: 10px;
+            height: 40px;
+            width: 100px;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .toggle-on {
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            height: 40px;
+            width: 100px;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 5px;
+            cursor: pointer;
+        }

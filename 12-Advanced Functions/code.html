@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function`s</title>
+</head>
+
+<body>
+    <button class="js-button">Click</button>
+    <script>
+
+        greet(); // -> Hoisting Avaiable
+
+        function greet() {
+            console.log('HI!');
+        }
+
+        //greeting(); -> Not Accessible -> Hoisting not available
+
+        const greeting = function () {
+            console.log('hi');
+        }
+
+        greet();
+        greeting();
+        console.log(typeof greeting);
+
+        function run(func) {
+            func();
+        }
+        run(function () {
+            console.log('function inside function');
+        });
+
+        //Asynchronous Code:
+        setTimeout(function () {
+            console.log('Hehhe BOI');
+        }, 10000);
+        //Synchronous Code:
+        console.log('timout');
+
+        setInterval(() => {
+            console.log('timeout');
+        }, 2000);
+
+
+        [1, 2, 3,].forEach((val, i) => {
+            console.log(val + ',' + i);
+        })
+
+        const regular = function () {
+            console.log('Hi');
+        }
+
+        const arrow = () => {
+            console.log('HI');
+        }
+
+        const arrowAdvanced = param => param + 10;
+        const arrow2 = () => 'HI';
+
+        regular();
+        arrow();
+        console.log(arrowAdvanced(10));
+        console.log(arrow2());
+
+        const button = document.querySelector('.js-button');
+        const func = () => console.log('click');
+        const func2 = () => console.log('click2');
+        button.addEventListener('click', func);
+        button.removeEventListener('click', func)
+        button.addEventListener('click', func2);
+
+        const arr = [-2, 2, 6];
+        console.log(arr.filter((val) => {
+            /*if (val > 0)
+                return true;
+            else
+                return false;*/
+            return val>0;
+        }));
+        console.log(arr);
+
+
+        console.log(arr.map((val) => val*2));
+        console.log(arr);
+        
+    </script>
+</body>
+
+</html>
