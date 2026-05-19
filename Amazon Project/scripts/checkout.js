@@ -81,7 +81,19 @@ document.querySelector('.js-order').innerHTML = cartHTML;
 
 let subTotal = 0;
 cart.forEach((item) => {
-  subTotal += (Number)(item.price);
+  subTotal += (Number)(item.price * 100);
 })
 
-document.querySelector('.js-subTotal').innerHTML = subTotal;
+subTotal = (Number)((subTotal / 100).toFixed(2));
+//document.querySelector('.js-subTotal').innerHTML = `$${subTotal}`;
+let beforeTax = (subTotal*100 + 499)/100;
+document.querySelector('.js-beforeTax').innerHTML = `$${beforeTax}`;
+let tax = beforeTax*0.1;
+document.querySelector('.js-tax').innerHTML = `$${tax.toFixed(2)}`;
+const total = beforeTax + tax;
+
+document.querySelector('.js-total').innerHTML = `$${total.toFixed(2)}`;
+
+document.querySelector('.js-items').innerHTML = ` <div>Items (${cart.length}):</div>
+            <div class="payment-summary-money js-subTotal">$${subTotal}</div>`;
+document.querySelector('.js-items-link').innerHTML = `${cart.length} items`;
