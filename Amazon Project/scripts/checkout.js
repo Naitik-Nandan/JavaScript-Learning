@@ -1,3 +1,5 @@
+import {cart} from '../scripts/cart.js'
+
 let cartHTML = "";
 cart.forEach((item) => {
   cartHTML += `<div class="cart-item-container">
