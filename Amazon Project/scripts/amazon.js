@@ -1,8 +1,11 @@
 import { cart, updateCartQuantity, addToCart } from './cart.js';
 import { products } from '../data/products.js'
+import {hello} from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
+
+console.log(hello());
 let productsHtml = '';
 
-updateCartQuantity();
+document.querySelector('.js-qty').innerHTML = updateCartQuantity();
 
 products.forEach((product) => {
   productsHtml += `<div class="product-container">
@@ -66,8 +69,7 @@ document.querySelectorAll('.js-add2cart').forEach((button) => {
     const {productId} = button.dataset;
     const qty = (Number)(document.querySelector(`.js-quantity-selector-${productId}`).value);
     addToCart(productId, qty);
-    console.log(cart);
-    updateCartQuantity();
+    document.querySelector('.js-qty').innerHTML = updateCartQuantity();
 
     localStorage.setItem('cart', JSON.stringify(cart));
   });

@@ -1,6 +1,6 @@
 export const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-let timeoutId = false;
+let timeoutId;
 export const addToCart = (productId, qty) => {
   let match;
   cart.forEach((cartItem) => {
@@ -9,31 +9,50 @@ export const addToCart = (productId, qty) => {
   });
   if (!match) {
     cart.push({
-      productId, qty
+      productId, qty, deliveryOptionId: '1'
     });
   } else {
     match.qty += qty;
   }
 
-
   document.querySelector(`.js-added-${productId}`).classList.add('added');
+  timeoutGame(timeoutId, productId);
 
-  if (timeoutId) {
-    clearTimeout(timeoutId);
-  }
 
-  timeoutId = setTimeout(() => {
-    document.querySelector(`.js-added-${productId}`).classList.remove('added');
-    timeoutId = false;
-  }, 2000);
+
 }
 
 
+function timeoutGame(timeoutId, productId) {
+  if (timeoutId) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      document.querySelector(`.js-added-${productId}`).classList.remove('added');
+    }, 2000);
+  }
+  else {
+    timeoutId = setTimeout(() => {
+      document.querySelector(`.js-added-${productId}`).classList.remove('added');
+    }, 2000);
+  }
+  console.log(timeoutId);
+}
 
 export function updateCartQuantity() {
   let totalQty = 0;
   cart.forEach((cartItem) => {
     totalQty += cartItem.qty;
   });
-  document.querySelector('.js-qty').innerHTML = totalQty;
+  if (totalQty <= 0)
+    totalQty = '';
+  return totalQty;
+}
+
+
+export function updateQuantity(productId, qty) {
+  cart.forEach((item) => {
+    if (item.productId === productId)
+      item.qty = qty;
+  });
+  localStorage.setItem('cart', JSON.stringify(cart));
 }
