@@ -34,7 +34,7 @@ function deliveryOptionsHTML(item, cartItem) {
   return html;
 }
 
-function checkout() {
+export function checkout() {
 
   let cartHTML = "";
   let subTotal = 0;

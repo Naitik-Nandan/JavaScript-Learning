@@ -1,3 +1,4 @@
+import { checkout } from "./checkout.js";
 export const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 let timeoutId;
@@ -65,4 +66,5 @@ export function updateDeliveryOptionId(productId, deliveryOptionId) {
   })
   matchingItem.deliveryOptionId = deliveryOptionId;
   localStorage.setItem('cart', JSON.stringify(cart));
+  checkout();
 }
