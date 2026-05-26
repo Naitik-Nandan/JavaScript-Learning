@@ -1,7 +1,7 @@
 import { cart, updateCartQuantity, updateQuantity, updateDeliveryOptionId } from '../../scripts/cart.js'
 import { products } from '../../data/products.js';
 import { money } from '../utils/money.js';
-import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
+//import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import { deliveryOptions, calculateDeliveryDate } from '../utils/deliveryOptions.js'
 import { renderPaymentSummary } from './paymentSummary.js';
 
@@ -69,7 +69,7 @@ export function checkout() {
                   ${item.name}
                 </div>
                 <div class="product-price">
-                  $${item.priceCents / 100}
+                  ₹${money(item.priceCents)}
                 </div>
                 <div class="product-quantity">
                   <span>

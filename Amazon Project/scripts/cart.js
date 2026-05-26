@@ -1,4 +1,4 @@
-import { checkout } from "./Checkout/orderSummary.js";
+import { checkout } from "./checkout/orderSummary.js";
 export const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 let timeoutId;

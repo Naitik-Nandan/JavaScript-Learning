@@ -1,6 +1,7 @@
 import { cart, updateCartQuantity, addToCart } from './cart.js';
 import { products } from '../data/products.js'
 import {hello} from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
+import { money } from './utils/money.js';
 
 console.log(hello());
 let productsHtml = '';
@@ -27,7 +28,7 @@ products.forEach((product) => {
           </div>
 
           <div class="product-price">
-            $${(product.priceCents / 100).toFixed(2)}
+            ₹${money(product.priceCents)}
           </div>
 
           <div class="product-quantity-container">

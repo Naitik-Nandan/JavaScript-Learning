@@ -6,12 +6,12 @@ export function renderPaymentSummary() {
     let beforeTax = (subTotal + ShippingCosts);
     let tax = beforeTax * 0.1;
     const total = beforeTax + tax;
-    document.querySelector('.js-shipping').innerHTML = `$${money(ShippingCosts)}`;
-    document.querySelector('.js-beforeTax').innerHTML = `$${money(beforeTax)}`;
-    document.querySelector('.js-tax').innerHTML = `$${money(tax)}`;
-    document.querySelector('.js-total').innerHTML = `$${money(total)}`;
+    document.querySelector('.js-shipping').innerHTML = `₹${money(ShippingCosts)}`;
+    document.querySelector('.js-beforeTax').innerHTML = `₹${money(beforeTax)}`;
+    document.querySelector('.js-tax').innerHTML = `₹${money(tax)}`;
+    document.querySelector('.js-total').innerHTML = `₹${money(total)}`;
 
     document.querySelector('.js-items').innerHTML = ` <div>Items (${updateCartQuantity()}):</div>
-            <div class="payment-summary-money js-subTotal">$${money(subTotal)}</div>`;
+            <div class="payment-summary-money js-subTotal">₹${money(subTotal)}</div>`;
     document.querySelector('.js-items-link').innerHTML = `${updateCartQuantity()} items`;
 }
