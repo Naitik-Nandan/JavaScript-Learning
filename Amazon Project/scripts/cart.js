@@ -1,4 +1,4 @@
-import { checkout } from "./checkout.js";
+import { checkout } from "./Checkout/orderSummary.js";
 export const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 let timeoutId;
@@ -45,7 +45,7 @@ export function updateCartQuantity() {
     totalQty += cartItem.qty;
   });
   if (totalQty <= 0)
-    totalQty = '';
+    totalQty = 'No';
   return totalQty;
 }
 
