@@ -1,5 +1,15 @@
 import { checkout } from "./checkout/orderSummary.js";
-export const cart = JSON.parse(localStorage.getItem('cart')) || [];
+export let cart;
+
+export function loadFromStorage() {
+  cart = JSON.parse(localStorage.getItem('cart')) || [];
+}
+
+loadFromStorage();
+
+export function resetCart() {
+  cart.length = 0;
+}
 
 let timeoutId;
 export const addToCart = (productId, qty) => {
@@ -16,10 +26,11 @@ export const addToCart = (productId, qty) => {
     match.qty += qty;
   }
 
-  document.querySelector(`.js-added-${productId}`).classList.add('added');
-  timeoutGame(timeoutId, productId);
-
-
+  const addedEl = document.querySelector(`.js-added-${productId}`);
+  if (addedEl) {
+    addedEl.classList.add('added');
+    timeoutGame(timeoutId, productId);
+  }
 
 }
 

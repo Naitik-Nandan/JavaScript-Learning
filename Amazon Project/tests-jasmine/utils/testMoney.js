@@ -1,4 +1,4 @@
-import { money } from "../scripts/utils/money.js";
+import { money } from "../../scripts/utils/money.js";
 
 describe('test suite: money', () => {
     it('converts paise into rupees', () => {
