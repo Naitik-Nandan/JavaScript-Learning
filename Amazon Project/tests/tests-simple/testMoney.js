@@ -1,4 +1,4 @@
-import { money } from "../scripts/utils/money.js";
+import { money } from "../../scripts/utils/money.js";
 
 console.log('test suite: money')
 console.log('converts paise into rupees')
