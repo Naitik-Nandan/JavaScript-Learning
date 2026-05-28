@@ -1,4 +1,4 @@
-import { cart, updateCartQuantity, updateQuantity, updateDeliveryOptionId } from '../../scripts/cart.js'
+import { cart, updateQuantity, updateDeliveryOptionId } from '../../scripts/cart.js'
 import { products } from '../../data/products.js';
 import { money } from '../utils/money.js';
 //import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
@@ -55,7 +55,7 @@ export function checkout() {
         deliveryOption = option;
     });
     const dateString = calculateDeliveryDate(deliveryOption);
-    cartHTML += `<div class="cart-item-container js-item-${item.id}">
+    cartHTML += `<div class="cart-item-container js-item-${item.id} js-cart-item-container">
             <div class="delivery-date">
               Delivery date: ${dateString}
             </div>
@@ -71,7 +71,7 @@ export function checkout() {
                 <div class="product-price">
                   ₹${money(item.priceCents)}
                 </div>
-                <div class="product-quantity">
+                <div class="product-quantity js-qty-${item.id}">
                   <span>
                     Quantity: <span class="quantity-label">${cartItem.qty}</span>
                   </span>
@@ -80,7 +80,7 @@ export function checkout() {
                   </span>
                   <input class="quantity-input">
                   <span class="save-quantity-link link-primary">Save</span>
-                  <span class="delete-quantity-link link-primary js-del" data-product-id="${item.id}">
+                  <span class="delete-quantity-link link-primary js-del js-del-${item.id}" data-product-id="${item.id}">
                     Delete
                   </span>
                 </div>

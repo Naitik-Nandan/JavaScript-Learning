@@ -3,6 +3,9 @@ import { money } from "../utils/money.js";
 import { updateCartQuantity } from "../cart.js";
 
 export function renderPaymentSummary() {
+    // Guard: these elements only exist on the real checkout page, not in tests
+    if (!document.querySelector('.js-shipping')) return;
+
     let beforeTax = (subTotal + ShippingCosts);
     let tax = beforeTax * 0.1;
     const total = beforeTax + tax;

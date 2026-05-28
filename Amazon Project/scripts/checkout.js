@@ -1,2 +1,2 @@
-import { checkout } from "./Checkout/orderSummary.js";
+import { checkout } from "./checkout/orderSummary.js";
 checkout();
