@@ -5,7 +5,9 @@ import { money } from '../utils/money.js';
 import { deliveryOptions, calculateDeliveryDate } from '../utils/deliveryOptions.js'
 import { renderPaymentSummary } from './paymentSummary.js';
 
-function deliveryOptionsHTML(item, cartItem) {
+import '../cart-opp.js';
+
+export function deliveryOptionsHTML(item, cartItem) {
 
   let html = '';
   deliveryOptions.forEach((deliveryOption) => {
@@ -13,7 +15,7 @@ function deliveryOptionsHTML(item, cartItem) {
     const priceString = (deliveryOption.priceCents > 0) ? `$${money(deliveryOption.priceCents)}` : 'FREE';
 
     html += `<div class="delivery-option">
-                  <input type="radio" class="delivery-option-input js-delivery-option" ${cartItem.deliveryOptionId === deliveryOption.id ? 'checked' : ''}
+                  <input type="radio" class="delivery-option-input js-delivery-option js-delivery-${item.id}-and-${deliveryOption.id}" ${cartItem.deliveryOptionId === deliveryOption.id ? 'checked' : ''}
                     name="delivery-option-${item.id}" 
                     data-product-id = ${item.id}
                     data-delivery-option-id = ${deliveryOption.id}>
@@ -65,10 +67,10 @@ export function checkout() {
                 src=${item.image}>
 
               <div class="cart-item-details">
-                <div class="product-name">
+                <div class="product-name js-name-${item.id}" data-product-name = ${item.name}>
                   ${item.name}
                 </div>
-                <div class="product-price">
+                <div class="product-price js-price">
                   ₹${money(item.priceCents)}
                 </div>
                 <div class="product-quantity js-qty-${item.id}">
@@ -98,7 +100,8 @@ export function checkout() {
     ShippingCosts += deliveryOption.priceCents;
   });
 
-  document.querySelector('.js-order').innerHTML = cartHTML;
+  if (document.querySelector('.js-order'))
+    document.querySelector('.js-order').innerHTML = cartHTML;
 
   document.querySelectorAll('.js-del').forEach((link) => {
     link.addEventListener('click', () => {
@@ -152,7 +155,7 @@ function updateItemCartQuantity(productId) {
 }
 
 
-function deleteItem(itemId) {
+export function deleteItem(itemId) {
   let i;
   for (i = 0; i < cart.length; i++) {
     if (itemId === cart[i].productId)

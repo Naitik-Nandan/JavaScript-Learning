@@ -75,6 +75,13 @@ export function updateDeliveryOptionId(productId, deliveryOptionId) {
     if (cartItem.productId === productId)
       matchingItem = cartItem;
   })
+
+  if(!matchingItem)
+    return;
+
+  if (deliveryOptionId !== '1' && deliveryOptionId !== '2' && deliveryOptionId !== '3')
+    return;
+
   matchingItem.deliveryOptionId = deliveryOptionId;
   localStorage.setItem('cart', JSON.stringify(cart));
   checkout();

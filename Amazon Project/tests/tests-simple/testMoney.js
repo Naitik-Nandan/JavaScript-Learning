@@ -25,3 +25,16 @@ if ((money(2000.5)) === '20.01')
     console.log('passed');
 else
     console.log('failed');
+
+console.log('rounds up to the nearest paise')
+
+if ((money(2000.4)) === '20.00')
+    console.log('passed');
+else
+    console.log('failed');
+
+if(money(-170) === '-1.70')
+    console.log('passed');
+else {
+    console.log('failed');
+}
