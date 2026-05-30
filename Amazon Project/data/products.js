@@ -714,3 +714,33 @@ export const products = [
     return new Clothing(productDetails);
   return new Product(productDetails);
 });
+
+/*
+const date = new Date();
+console.log(date);
+console.log(date.toLocaleTimeString());
+*/
+/*
+
+const object2 = {
+  a: 2,
+  b: this.a + 1
+}
+
+console.log(object2);
+
+*/
+
+/*
+function logThis() {
+  console.log(this);
+}
+
+logThis.call('this');
+
+const object3 = () => {
+  console.log(this); //undefined
+};
+
+object3.call('hi');
+*/
