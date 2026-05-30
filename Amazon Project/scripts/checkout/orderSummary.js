@@ -5,7 +5,9 @@ import { money } from '../utils/money.js';
 import { deliveryOptions, calculateDeliveryDate } from '../utils/deliveryOptions.js'
 import { renderPaymentSummary } from './paymentSummary.js';
 
-import '../cart-opp.js';
+//import '../cart-oop.js';
+import '../cart-class.js';
+
 
 export function deliveryOptionsHTML(item, cartItem) {
 
