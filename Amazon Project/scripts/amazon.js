@@ -46,6 +46,8 @@ products.forEach((product) => {
             </select>
           </div>
 
+          ${product.extraInfoHTML()}
+
           <div class="product-spacer"></div>
 
           <div class="added-to-cart js-added-${product.id}">
@@ -56,7 +58,7 @@ products.forEach((product) => {
           <button class="add-to-cart-button button-primary js-add2cart" 
           data-product-name="${product.name}"
           data-product-image="${product.image}"
-          data-product-price=${(product.priceCents / 100).toFixed(2)}
+          data-product-price=${product.getPrice()}
           data-product-id=${product.id}>
             Add to Cart
           </button>

@@ -11,7 +11,7 @@ export function resetCart() {
   cart.length = 0;
 }
 
-let timeoutId;
+const timeoutIds = {};
 export const addToCart = (productId, qty) => {
   let match;
   cart.forEach((cartItem) => {
@@ -29,25 +29,12 @@ export const addToCart = (productId, qty) => {
   const addedEl = document.querySelector(`.js-added-${productId}`);
   if (addedEl) {
     addedEl.classList.add('added');
-    timeoutGame(timeoutId, productId);
-  }
-
-}
-
-
-function timeoutGame(timeoutId, productId) {
-  if (timeoutId) {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
-      document.querySelector(`.js-added-${productId}`).classList.remove('added');
+    clearTimeout(timeoutIds[productId]);
+    timeoutIds[productId] = setTimeout(() => {
+      addedEl.classList.remove('added');
     }, 2000);
   }
-  else {
-    timeoutId = setTimeout(() => {
-      document.querySelector(`.js-added-${productId}`).classList.remove('added');
-    }, 2000);
-  }
-  console.log(timeoutId);
+
 }
 
 export function updateCartQuantity() {
