@@ -6,7 +6,7 @@ import { deliveryOptions, calculateDeliveryDate } from '../utils/deliveryOptions
 import { renderPaymentSummary } from './paymentSummary.js';
 
 //import '../cart-oop.js';
-import '../cart-class.js';
+//import '../cart-class.js';
 
 
 export function deliveryOptionsHTML(item, cartItem) {
@@ -73,7 +73,7 @@ export function checkout() {
                   ${item.name}
                 </div>
                 <div class="product-price js-price">
-                  ₹${money(item.priceCents)}
+                  ${item.getPrice()}
                 </div>
                 <div class="product-quantity js-qty-${item.id}">
                   <span>
