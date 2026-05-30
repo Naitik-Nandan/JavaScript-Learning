@@ -1,6 +1,6 @@
 import { checkout } from "./checkout/orderSummary.js";
 
-class Cart {
+export class Cart {
     cartItems;
     #localStorageKey;
 
