@@ -1,6 +1,8 @@
 import { subTotal, ShippingCosts } from "./orderSummary.js";
 import { money } from "../utils/money.js";
-import { updateCartQuantity } from "../cart.js";
+import {cart} from "../cart-class.js";
+
+//const cart  = new Cart('cart');
 
 export function renderPaymentSummary() {
     // Guard: these elements only exist on the real checkout page, not in tests
@@ -14,7 +16,7 @@ export function renderPaymentSummary() {
     document.querySelector('.js-tax').innerHTML = `₹${money(tax)}`;
     document.querySelector('.js-total').innerHTML = `₹${money(total)}`;
 
-    document.querySelector('.js-items').innerHTML = ` <div>Items (${updateCartQuantity()}):</div>
+    document.querySelector('.js-items').innerHTML = ` <div>Items (${cart.updateCartQuantity()}):</div>
             <div class="payment-summary-money js-subTotal">₹${money(subTotal)}</div>`;
-    document.querySelector('.js-items-link').innerHTML = `${updateCartQuantity()} items`;
+    document.querySelector('.js-items-link').innerHTML = `${cart.updateCartQuantity()} items`;
 }

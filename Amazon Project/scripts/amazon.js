@@ -1,12 +1,11 @@
-import { cart, updateCartQuantity, addToCart } from './cart.js';
 import { products } from '../data/products.js'
-import {hello} from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
-import { money } from './utils/money.js';
-
+import { hello } from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
+import { cart } from './cart-class.js';
 console.log(hello());
 let productsHtml = '';
-
-document.querySelector('.js-qty').innerHTML = updateCartQuantity();
+cart.loadFromStorage();
+document.querySelector('.js-qty').innerHTML = cart.updateCartQuantity();
+console.log(cart.updateCartQuantity());
 
 products.forEach((product) => {
   productsHtml += `<div class="product-container">
@@ -69,11 +68,9 @@ document.querySelector('.js-products').innerHTML = productsHtml;
 
 document.querySelectorAll('.js-add2cart').forEach((button) => {
   button.addEventListener('click', () => {
-    const {productId} = button.dataset;
+    const { productId } = button.dataset;
     const qty = (Number)(document.querySelector(`.js-quantity-selector-${productId}`).value);
-    addToCart(productId, qty);
-    document.querySelector('.js-qty').innerHTML = updateCartQuantity();
-
-    localStorage.setItem('cart', JSON.stringify(cart));
+    cart.addToCart(productId, qty);
+    document.querySelector('.js-qty').innerHTML = cart.updateCartQuantity();
   });
 });

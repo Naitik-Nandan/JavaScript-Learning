@@ -1,15 +1,13 @@
-import { checkout } from "./checkout/orderSummary.js";
 
 export class Cart {
-    cartItems;
+    cartItems = [];
     #localStorageKey;
-
     constructor(localStorageKey) {
         this.#localStorageKey = localStorageKey;
-        this.#loadFromStorage();
+        this.loadFromStorage();
     }
 
-    #loadFromStorage() {
+    loadFromStorage() {
         this.cartItems = JSON.parse(localStorage.getItem(this.#localStorageKey)) || [];
     }
 
@@ -39,7 +37,7 @@ export class Cart {
         const addedEl = document.querySelector(`.js-added-${productId}`);
         if (addedEl) {
             addedEl.classList.add('added');
-            cart.timeoutGame(timeoutId, productId);
+            this.timeoutGame(this.timeoutId, productId);
         }
         this.saveToStorage();
 
@@ -66,8 +64,6 @@ export class Cart {
         this.cartItems.forEach((cartItem) => {
             totalQty += cartItem.qty;
         });
-        if (totalQty <= 0)
-            totalQty = 'No';
         return totalQty;
     }
 
@@ -95,15 +91,17 @@ export class Cart {
 
         matchingItem.deliveryOptionId = deliveryOptionId;
         this.saveToStorage();
-        checkout();
     }
 
 };
 
-const cart = new Cart('cart-oop');
+export const cart = new Cart('cart');
+
+/*const cart = new Cart('cart-oop');
 const businessCart = new Cart('cart-business');
 console.log(cart);
 //cart.addToCart('e43638ce-6aa0-4b85-b27f-e1d07eb678c6', 1);
 //cart.#localStorageKey = 'yo'; //will not work
 console.log(businessCart);
 console.log(businessCart instanceof Cart);
+*/

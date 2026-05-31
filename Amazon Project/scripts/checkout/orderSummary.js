@@ -1,12 +1,13 @@
-import { cart, updateQuantity, updateDeliveryOptionId } from '../../scripts/cart.js'
 import { products } from '../../data/products.js';
 import { money } from '../utils/money.js';
 //import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import { deliveryOptions, calculateDeliveryDate } from '../utils/deliveryOptions.js'
 import { renderPaymentSummary } from './paymentSummary.js';
+import { cart } from '../cart-class.js';
 
 //import '../cart-oop.js';
-//import '../cart-class.js';
+
+console.log(cart.cartItems);
 
 
 export function deliveryOptionsHTML(item, cartItem) {
@@ -45,7 +46,7 @@ export function checkout() {
 
   let cartHTML = "";
 
-  cart.forEach((cartItem) => {
+  cart.cartItems.forEach((cartItem) => {
     let item;
     products.forEach((product) => {
       if (cartItem.productId === product.id)
@@ -137,7 +138,7 @@ export function checkout() {
   document.querySelectorAll('.js-delivery-option').forEach((input) => {
     input.addEventListener('click', () => {
       const { productId, deliveryOptionId } = input.dataset;
-      updateDeliveryOptionId(productId, deliveryOptionId);
+      cart.updateDeliveryOptionId(productId, deliveryOptionId);
       checkout();
     })
   })
@@ -149,7 +150,7 @@ export function checkout() {
 function updateItemCartQuantity(productId) {
   let qty = (Number)(document.querySelector('.quantity-input').value);
   if (qty > 0 && qty < 1000)
-    updateQuantity(productId, qty);
+    cart.updateQuantity(productId, qty);
   else
     alert('Enter an appropriate Number');
   checkout();
@@ -159,12 +160,12 @@ function updateItemCartQuantity(productId) {
 
 export function deleteItem(itemId) {
   let i;
-  for (i = 0; i < cart.length; i++) {
-    if (itemId === cart[i].productId)
+  for (i = 0; i < cart.cartItems.length; i++) {
+    if (itemId === cart.cartItems[i].productId)
       break;
   }
-  cart.splice(i, 1);
+  cart.cartItems.splice(i, 1);
   console.log(cart);
-  localStorage.setItem('cart', JSON.stringify(cart));
+  cart.saveToStorage();
   checkout();
 }

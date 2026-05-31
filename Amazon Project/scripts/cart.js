@@ -42,8 +42,6 @@ export function updateCartQuantity() {
   cart.forEach((cartItem) => {
     totalQty += cartItem.qty;
   });
-  if (totalQty <= 0)
-    totalQty = 'No';
   return totalQty;
 }
 
