@@ -1,13 +1,12 @@
-import { products } from '../../data/products.js';
+import { products, loadProducts } from '../../data/products.js';
 import { money } from '../utils/money.js';
 //import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import { deliveryOptions, calculateDeliveryDate } from '../utils/deliveryOptions.js'
 import { renderPaymentSummary } from './paymentSummary.js';
 import { cart } from '../cart-class.js';
-
 //import '../cart-oop.js';
 
-console.log(cart.cartItems);
+
 
 
 export function deliveryOptionsHTML(item, cartItem) {

@@ -1,6 +1,14 @@
 import { checkout, deleteItem } from '../../scripts/checkout/orderSummary.js';
 import { cart } from '../../scripts/cart-class.js';
 //import { Cart } from '../../scripts/cart-class.js';
+import { loadProducts } from '../../data/products.js';
+
+
+beforeAll((done /*Provided by Jasmine for Asynchronous functions*/) =>{
+    loadProducts(()=>{
+        done();
+    })
+})
 
 describe('test suite: checkout', () => {
     const productId1 = 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6';
