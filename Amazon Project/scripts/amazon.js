@@ -77,3 +77,5 @@ function renderProductsGrid() {
     });
   });
 }
+
+console.log(Promise);
