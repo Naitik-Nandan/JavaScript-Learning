@@ -1,14 +1,16 @@
-import { products } from '../data/products.js'
-import { hello } from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
+import { products, loadProducts } from '../data/products.js'
+//import { hello } from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
 import { cart } from './cart-class.js';
-console.log(hello());
-let productsHtml = '';
-cart.loadFromStorage();
-document.querySelector('.js-qty').innerHTML = cart.updateCartQuantity();
-console.log(cart.updateCartQuantity());
+//console.log(hello());
+loadProducts(renderProductsGrid);
+function renderProductsGrid() {
+  let productsHtml = '';
+  cart.loadFromStorage();
+  document.querySelector('.js-qty').innerHTML = cart.updateCartQuantity();
+  console.log(cart.updateCartQuantity());
 
-products.forEach((product) => {
-  productsHtml += `<div class="product-container">
+  products.forEach((product) => {
+    productsHtml += `<div class="product-container">
           <div class="product-image-container">
             <img class="product-image"
               src="${product.image}">
@@ -62,15 +64,16 @@ products.forEach((product) => {
             Add to Cart
           </button>
         </div>`;
-});
-
-document.querySelector('.js-products').innerHTML = productsHtml;
-
-document.querySelectorAll('.js-add2cart').forEach((button) => {
-  button.addEventListener('click', () => {
-    const { productId } = button.dataset;
-    const qty = (Number)(document.querySelector(`.js-quantity-selector-${productId}`).value);
-    cart.addToCart(productId, qty);
-    document.querySelector('.js-qty').innerHTML = cart.updateCartQuantity();
   });
-});
+
+  document.querySelector('.js-products').innerHTML = productsHtml;
+
+  document.querySelectorAll('.js-add2cart').forEach((button) => {
+    button.addEventListener('click', () => {
+      const { productId } = button.dataset;
+      const qty = (Number)(document.querySelector(`.js-quantity-selector-${productId}`).value);
+      cart.addToCart(productId, qty);
+      document.querySelector('.js-qty').innerHTML = cart.updateCartQuantity();
+    });
+  });
+}
