@@ -1,11 +1,11 @@
 import { checkout, deleteItem } from '../../scripts/checkout/orderSummary.js';
 import { cart } from '../../scripts/cart-class.js';
 //import { Cart } from '../../scripts/cart-class.js';
-import { loadProducts } from '../../data/products.js';
+import { loadProducts, loadProductsFetch } from '../../data/products.js';
 
 
-beforeAll((done /*Provided by Jasmine for Asynchronous functions*/) =>{
-    loadProducts(()=>{
+beforeAll((done /*Provided by Jasmine for Asynchronous functions*/) => {
+    loadProductsFetch().then(() => {
         done();
     })
 })

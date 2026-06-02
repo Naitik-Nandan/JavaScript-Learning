@@ -1,8 +1,11 @@
-import { products, loadProducts } from '../data/products.js'
+import { products, loadProducts, loadProductsFetch } from '../data/products.js'
 //import { hello } from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
 import { cart } from './cart-class.js';
 //console.log(hello());
-loadProducts(renderProductsGrid);
+//loadProducts(renderProductsGrid);
+loadProductsFetch().then(() => {
+  renderProductsGrid();;
+});
 function renderProductsGrid() {
   let productsHtml = '';
   cart.loadFromStorage();
@@ -77,5 +80,3 @@ function renderProductsGrid() {
     });
   });
 }
-
-console.log(Promise);
