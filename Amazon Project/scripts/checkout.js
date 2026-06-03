@@ -9,12 +9,19 @@ import { loadCart } from "./cart-class.js";
 
 
 async function loadPage() {
-    await loadProductsFetch();
-    await new Promise((resolve) => {
-        loadCart(() => {
-            resolve();
+    try {
+        //throw 'error'; //for throwing intentional error: synchronous
+        await loadProductsFetch();
+        const value = await new Promise((resolve , reject) => {
+            //throw 'error1';
+            //reject('error3'); //for getting out of promise and creating error -> asyncronous
+            loadCart(() => {
+                resolve();
+            });
         });
-    });
+    } catch (error) {
+        console.log(error);
+    };
     checkout();
 };
 
