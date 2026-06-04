@@ -21,12 +21,12 @@ describe('test suite: checkout', () => {
         spyOn(localStorage, 'getItem').and.callFake(() => {
             return JSON.stringify([{
                 productId: productId1,
-                qty: 1,
+                quantity: 1,
                 deliveryOptionId: '1'
             },
             {
                 productId: productId2,
-                qty: 2,
+                quantity: 2,
                 deliveryOptionId: '1'
             }]);
         });
@@ -64,12 +64,12 @@ describe('test suite: removeFromCart', () => {
         spyOn(localStorage, 'getItem').and.callFake(() => {
             return JSON.stringify([{
                 productId: productId1,
-                qty: 1,
+                quantity: 1,
                 deliveryOptionId: '1'
             },
             {
                 productId: productId2,
-                qty: 1,
+                quantity: 1,
                 deliveryOptionId: '1'
             }]);
         });
@@ -104,12 +104,12 @@ describe('test suite: deliveryOptions', () => {
         spyOn(localStorage, 'getItem').and.callFake(() => {
             return JSON.stringify([{
                 productId: productId1,
-                qty: 1,
+                quantity: 1,
                 deliveryOptionId: '1'
             },
             {
                 productId: productId2,
-                qty: 2,
+                quantity: 2,
                 deliveryOptionId: '1'
             }]);
         });
