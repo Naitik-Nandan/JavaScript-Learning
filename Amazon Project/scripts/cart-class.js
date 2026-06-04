@@ -22,7 +22,7 @@ export class Cart {
     }
 
     timeoutId = undefined;
-    addToCart(productId, qty) {
+    addToCart(productId, quantity) {
         let match;
         this.cartItems.forEach((cartItem) => {
             if (productId === cartItem.productId)
@@ -30,10 +30,10 @@ export class Cart {
         });
         if (!match) {
             this.cartItems.push({
-                productId, qty, deliveryOptionId: '1'
+                productId, quantity, deliveryOptionId: '1'
             });
         } else {
-            match.qty += qty;
+            match.quantity += quantity;
         }
 
         const addedEl = document.querySelector(`.js-added-${productId}`);
@@ -64,7 +64,7 @@ export class Cart {
     updateCartQuantity() {
         let totalQty = 0;
         this.cartItems.forEach((cartItem) => {
-            totalQty += cartItem.qty;
+            totalQty += cartItem.quantity;
         });
         return totalQty;
     }
@@ -73,7 +73,7 @@ export class Cart {
     updateQuantity(productId, qty) {
         this.cartItems.forEach((item) => {
             if (item.productId === productId)
-                item.qty = qty;
+                item.quantity = qty;
         });
         this.saveToStorage();
     }

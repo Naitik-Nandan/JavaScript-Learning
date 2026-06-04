@@ -6,13 +6,14 @@ import {
     loadProductsFetch
 } from "../data/products.js";
 import { loadCart } from "./cart-class.js";
+import { cart } from "./cart-class.js";
 
 
 async function loadPage() {
     try {
         //throw 'error'; //for throwing intentional error: synchronous
         await loadProductsFetch();
-        const value = await new Promise((resolve , reject) => {
+        const value = await new Promise((resolve, reject) => {
             //throw 'error1';
             //reject('error3'); //for getting out of promise and creating error -> asyncronous
             loadCart(() => {
@@ -61,3 +62,5 @@ new Promise((resolve) => {
 /*
 loadProducts(checkout);
 */
+
+

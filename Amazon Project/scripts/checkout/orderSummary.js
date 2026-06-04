@@ -77,7 +77,7 @@ export function checkout() {
                 </div>
                 <div class="product-quantity js-qty-${item.id}">
                   <span>
-                    Quantity: <span class="quantity-label">${cartItem.qty}</span>
+                    Quantity: <span class="quantity-label">${cartItem.quantity}</span>
                   </span>
                   <span class="update-quantity-link link-primary js-update" data-product-id="${item.id}">
                     Update
@@ -98,7 +98,7 @@ export function checkout() {
               </div>
             </div>
           </div>`;
-    subTotal += item.priceCents * cartItem.qty;
+    subTotal += item.priceCents * cartItem.quantity;
     ShippingCosts += deliveryOption.priceCents;
   });
 
@@ -167,4 +167,4 @@ export function deleteItem(itemId) {
   console.log(cart);
   cart.saveToStorage();
   checkout();
-}
+};
