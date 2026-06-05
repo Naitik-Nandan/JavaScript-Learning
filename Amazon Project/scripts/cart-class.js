@@ -94,6 +94,11 @@ export class Cart {
         matchingItem.deliveryOptionId = deliveryOptionId;
         this.saveToStorage();
     }
+    async loadCartFetch(fun) {
+        const response = await fetch('https://supersimplebackend.dev/cart');
+        console.log(await response.text());
+        fun();
+    }
 
 };
 

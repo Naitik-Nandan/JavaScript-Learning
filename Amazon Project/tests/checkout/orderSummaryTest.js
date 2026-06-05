@@ -4,11 +4,9 @@ import { cart } from '../../scripts/cart-class.js';
 import { loadProducts, loadProductsFetch } from '../../data/products.js';
 
 
-beforeAll((done /*Provided by Jasmine for Asynchronous functions*/) => {
-    loadProductsFetch().then(() => {
-        done();
-    })
-})
+beforeAll(async (/*(done /*Provided by Jasmine for Asynchronous functions*/) => {
+    await loadProductsFetch();
+});
 
 describe('test suite: checkout', () => {
     const productId1 = 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6';
