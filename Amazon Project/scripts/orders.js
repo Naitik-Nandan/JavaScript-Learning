@@ -73,6 +73,7 @@ async function loadPage() {
     document.querySelector('.js-order-grid').innerHTML = ordersHTML;
     document.querySelectorAll('.js-buy-it-again').forEach((button) => {
         button.addEventListener('click', () => {
+            localStorage.removeItem('cart');
             const productId = button.dataset.productId;
             let orderedProduct;
             products.forEach((item) => {
@@ -84,10 +85,10 @@ async function loadPage() {
             document.querySelector('.js-qty').innerHTML = cart.updateCartQuantity();
         });
         document.querySelector('.js-qty').innerHTML = 0;
-        localStorage.removeItem('cart');
+        cart.saveToStorage();
     });
 
-    
+
 }
 
 loadPage();
